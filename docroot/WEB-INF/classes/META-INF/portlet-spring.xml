@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="co.com.csj.service.alertaLocalService" class="co.com.csj.service.impl.alertaLocalServiceImpl" />
+	<bean id="co.com.csj.service.persistence.alertaPersistence" class="co.com.csj.service.persistence.alertaPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="base_despachos" />
+	</bean>
+	<bean id="co.com.csj.service.auditoriaPLocalService" class="co.com.csj.service.impl.auditoriaPLocalServiceImpl" />
+	<bean id="co.com.csj.service.persistence.auditoriaPPersistence" class="co.com.csj.service.persistence.auditoriaPPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="base_despachos" />
+	</bean>
+	<bean id="co.com.csj.service.cargoLocalService" class="co.com.csj.service.impl.cargoLocalServiceImpl" />
+	<bean id="co.com.csj.service.persistence.cargoPersistence" class="co.com.csj.service.persistence.cargoPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="base_despachos" />
+	</bean>
+	<bean id="co.com.csj.service.DocenciaLocalService" class="co.com.csj.service.impl.DocenciaLocalServiceImpl" />
+	<bean id="co.com.csj.service.persistence.DocenciaPersistence" class="co.com.csj.service.persistence.DocenciaPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="base_despachos" />
+	</bean>
+	<bean id="co.com.csj.service.licencia_permisoLocalService" class="co.com.csj.service.impl.licencia_permisoLocalServiceImpl" />
+	<bean id="co.com.csj.service.persistence.licencia_permisoPersistence" class="co.com.csj.service.persistence.licencia_permisoPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="base_despachos" />
+	</bean>
+	<bean id="co.com.csj.service.permisosLocalService" class="co.com.csj.service.impl.permisosLocalServiceImpl" />
+	<bean id="co.com.csj.service.persistence.permisosPersistence" class="co.com.csj.service.persistence.permisosPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="base_despachos" />
+	</bean>
+	<bean id="co.com.csj.service.tipoLocalService" class="co.com.csj.service.impl.tipoLocalServiceImpl" />
+	<bean id="co.com.csj.service.persistence.tipoPersistence" class="co.com.csj.service.persistence.tipoPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="base_despachos" />
+	</bean>
+	<bean id="co.com.csj.service.tipo_documentoLocalService" class="co.com.csj.service.impl.tipo_documentoLocalServiceImpl" />
+	<bean id="co.com.csj.service.persistence.tipo_documentoPersistence" class="co.com.csj.service.persistence.tipo_documentoPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="base_despachos" />
+	</bean>
+	<bean id="co.com.csj.service.usuarioLocalService" class="co.com.csj.service.impl.usuarioLocalServiceImpl" />
+	<bean id="co.com.csj.service.persistence.usuarioPersistence" class="co.com.csj.service.persistence.usuarioPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="base_despachos" />
+	</bean>
+</beans>

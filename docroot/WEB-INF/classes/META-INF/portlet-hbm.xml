@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false" auto-import="false">
+	<import class="co.com.csj.model.alerta" />
+	<import class="co.com.csj.model.auditoriaP" />
+	<import class="co.com.csj.model.cargo" />
+	<import class="co.com.csj.model.Docencia" />
+	<import class="co.com.csj.model.licencia_permiso" />
+	<import class="co.com.csj.model.permisos" />
+	<import class="co.com.csj.model.tipo" />
+	<import class="co.com.csj.model.tipo_documento" />
+	<import class="co.com.csj.model.usuario" />
+	<class name="co.com.csj.model.impl.alertaImpl" table="SJ_alertas">
+		<cache usage="read-write" />
+		<id name="id" type="java.lang.String">
+			<generator class="assigned" />
+		</id>
+		<property name="asunto" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="mensaje" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="co.com.csj.model.impl.auditoriaPImpl" table="SJ_log">
+		<cache usage="read-write" />
+		<id name="id" type="long">
+			<generator class="identity" />
+		</id>
+		<property name="tipo_recurso" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="id_recurso_modificado" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="tipo_operacion" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="fecha" type="org.hibernate.type.TimestampType" />
+		<property name="correo" type="com.liferay.portal.dao.orm.hibernate.StringType" column="correo_usuario_modifico" />
+		<property name="usuario_modifico" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="modificacion" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="co.com.csj.model.impl.cargoImpl" table="SJ_cargo">
+		<cache usage="read-write" />
+		<id name="_id" column="id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="desc" type="com.liferay.portal.dao.orm.hibernate.StringType" column="descripcion" />
+	</class>
+	<class name="co.com.csj.model.impl.DocenciaImpl" table="SJ_docencia">
+		<cache usage="read-write" />
+		<id name="id" column="ID" type="long">
+			<generator class="identity" />
+		</id>
+		<property name="usuario_fk" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="fechaInicial" type="org.hibernate.type.TimestampType" column="fecha_inicial" />
+		<property name="fechaFinal" type="org.hibernate.type.TimestampType" column="fecha_final" />
+		<property name="materia" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="institucion" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="despacho" type="com.liferay.portal.dao.orm.hibernate.StringType" column="despacho_fk" />
+		<property name="creadoPor" type="com.liferay.portal.dao.orm.hibernate.LongType" column="created_by" />
+		<property name="modificadoPor" type="com.liferay.portal.dao.orm.hibernate.LongType" column="modified_by" />
+		<property name="estatus" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="horas" type="com.liferay.portal.dao.orm.hibernate.IntegerType" column="horas_docencia" />
+		<property name="minutos" type="com.liferay.portal.dao.orm.hibernate.IntegerType" column="minutos_docencia" />
+		<property name="cargo" type="com.liferay.portal.dao.orm.hibernate.IntegerType" column="cargo_fk" />
+		<property name="fechaRegistro" type="org.hibernate.type.TimestampType" column="fecha_registro" />
+	</class>
+	<class name="co.com.csj.model.impl.licencia_permisoImpl" table="SJ_licencia_permiso">
+		<cache usage="read-write" />
+		<id name="id" column="ID" type="long">
+			<generator class="identity" />
+		</id>
+		<property name="fechainicio" type="org.hibernate.type.TimestampType" column="fecha_inicio" />
+		<property name="fechafin" type="org.hibernate.type.TimestampType" column="fecha_fin" />
+		<property name="usuariofk" type="com.liferay.portal.dao.orm.hibernate.StringType" column="usuario_fk" />
+		<property name="tipofk" type="com.liferay.portal.dao.orm.hibernate.LongType" column="tipo_fk" />
+		<property name="actoadmin" type="com.liferay.portal.dao.orm.hibernate.StringType" column="acto_admin" />
+		<property name="creadoPor" type="com.liferay.portal.dao.orm.hibernate.LongType" column="created_by" />
+		<property name="modificadoPor" type="com.liferay.portal.dao.orm.hibernate.LongType" column="modified_by" />
+		<property name="estatus" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="despacho" type="com.liferay.portal.dao.orm.hibernate.StringType" column="despacho_fk" />
+		<property name="cargo" type="com.liferay.portal.dao.orm.hibernate.IntegerType" column="cargo_fk" />
+		<property name="horas" type="com.liferay.portal.dao.orm.hibernate.IntegerType" column="horas_permiso" />
+		<property name="minutos" type="com.liferay.portal.dao.orm.hibernate.IntegerType" column="minutos_permiso" />
+		<property name="fechaRegistro" type="org.hibernate.type.TimestampType" column="fecha_registro" />
+	</class>
+	<class name="co.com.csj.model.impl.permisosImpl" table="SJ_permiso_usuario">
+		<cache usage="read-write" />
+		<id name="id" type="long">
+			<generator class="identity" />
+		</id>
+		<property name="cargo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="d_m" type="com.liferay.portal.dao.orm.hibernate.StringType" column="departamento_municipio" />
+		<property name="usuario" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="creacion" type="org.hibernate.type.TimestampType" column="fecha_creacion" />
+	</class>
+	<class name="co.com.csj.model.impl.tipoImpl" table="SJ_tipo">
+		<cache usage="read-write" />
+		<id name="id" column="ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="descripcion" type="com.liferay.portal.dao.orm.hibernate.StringType" column="Descripcion" />
+	</class>
+	<class name="co.com.csj.model.impl.tipo_documentoImpl" table="SJ_tipo_documento">
+		<cache usage="read-write" />
+		<id name="_id" column="id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="desc" type="com.liferay.portal.dao.orm.hibernate.StringType" column="descripcion" />
+	</class>
+	<class name="co.com.csj.model.impl.usuarioImpl" table="SJ_usuario">
+		<cache usage="read-write" />
+		<id name="id" column="cedula_id" type="java.lang.String">
+			<generator class="assigned" />
+		</id>
+		<property name="nomb" type="com.liferay.portal.dao.orm.hibernate.StringType" column="nombre" />
+		<property name="ape" type="com.liferay.portal.dao.orm.hibernate.StringType" column="apellido" />
+		<property name="tipo_doc" type="com.liferay.portal.dao.orm.hibernate.LongType" column="documento_fk" />
+		<property name="despachofk" type="com.liferay.portal.dao.orm.hibernate.StringType" column="despacho_fk" />
+		<property name="cargofk" type="com.liferay.portal.dao.orm.hibernate.LongType" column="cargo_fk" />
+	</class>
+</hibernate-mapping>

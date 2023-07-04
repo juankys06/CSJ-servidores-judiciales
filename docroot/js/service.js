@@ -1,0 +1,1 @@
+Liferay.Service.register("Liferay.Service.servidores", "co.com.csj.service", "Servidores-portlet");

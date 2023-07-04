@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.1.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_1_0.dtd">
+
+<service-builder package-path="co.com.csj">
+	<author>villartech</author>
+	<namespace>servidores</namespace>
+	
+	<entity name="tipo" table="SJ_tipo" local-service="true" remote-service="false" data-source="base_despachos">
+		<column name="id" 			db-name="ID" 			type="long" 	primary="true"></column>
+		<column name="descripcion" 	db-name="Descripcion" 	type="String"></column>
+	</entity>
+	
+	<entity name="licencia_permiso" table="SJ_licencia_permiso" local-service="true" remote-service="false" data-source="base_despachos">
+		<column name="id" 				db-name="ID" 			type="long" 	primary="true" 	id-type="identity"></column>
+		<column name="fechainicio" 		db-name="fecha_inicio" 	type="Date"></column>
+		<column name="fechafin" 		db-name="fecha_fin" 	type="Date"></column>
+		<column name="usuariofk" 		db-name="usuario_fk" 	type="String"></column>
+		<column name="tipofk" 			db-name="tipo_fk" 		type="long"></column>
+		<column name="actoadmin" 		db-name="acto_admin" 	type="String"></column>
+		<column name="creadoPor" 		db-name="created_by" 	type="long"></column>
+		<column name="modificadoPor" 	db-name="modified_by" 	type="long"></column>
+		<column name="estatus" 			db-name="estatus" 		type="int"></column>
+		<column name="despacho" 		db-name="despacho_fk" 	type="String"></column>
+		<column name="cargo" 			db-name="cargo_fk" 		type="int"></column>
+		<column name="horas" 			db-name="horas_permiso" 	type="int"></column>
+		<column name="minutos" 			db-name="minutos_permiso" 	type="int"></column>
+		<column name="fechaRegistro" 	db-name="fecha_registro" 	type="Date"></column>
+		
+		<order by="desc">
+			<order-column name="id" order-by="desc"></order-column>
+		</order>
+		
+		<finder return-type="Collection" name="porTipo" where="estatus = 1">
+			<finder-column name="tipofk"></finder-column>
+		</finder>
+		
+		<finder return-type="Collection" name="Creator" where="estatus = 1">
+			<finder-column name="creadoPor"></finder-column>
+		</finder>
+		
+		<finder return-type="Collection" name="Person" where="estatus = 1">
+			<finder-column name="usuariofk"></finder-column>
+		</finder>
+		
+		<finder return-type="Collection" name="Estatus">
+			<finder-column name="estatus"></finder-column>
+		</finder>
+		
+		<finder return-type="Collection" name="Despacho" where="estatus = 1">
+			<finder-column name="despacho"></finder-column>
+		</finder>
+	</entity>
+	
+	<entity name="cargo" table="SJ_cargo" local-service="true" remote-service="false" data-source="base_despachos">
+		<column name="_id" 	db-name="id" 			type="long" 	primary="true"></column>
+		<column name="desc" db-name="descripcion" 	type="String"></column>
+		
+		<order by="asc">
+			<order-column name="desc" order-by="asc"></order-column>
+		</order>
+	</entity>
+	
+	<entity name="usuario" table="SJ_usuario" local-service="true" remote-service="false" data-source="base_despachos">
+		<column name="id" 			db-name="cedula_id" 	type="String" 	primary="true"></column>
+		<column name="nomb" 		db-name="nombre" 		type="String"></column>
+		<column name="ape" 			db-name="apellido" 		type="String"></column>
+		<column name="tipo_doc" 	db-name="documento_fk" 	type="long"></column>
+		<column name="despachofk" 	db-name="despacho_fk" 	type="String"></column>
+		<column name="cargofk" 		db-name="cargo_fk" 		type="long"></column>
+	</entity>
+	
+	<entity name="tipo_documento" table="SJ_tipo_documento" local-service="true" remote-service="false" data-source="base_despachos">
+		<column name="_id" 	db-name="id" 			type="long" 	primary="true"></column>
+		<column name="desc" db-name="descripcion" 	type="String"></column>
+	</entity>
+	
+	<entity name="permisos" table="SJ_permiso_usuario" local-service="true" remote-service="false" data-source="base_despachos">
+		<column name="id" 		db-name="id" 						type="long" 	primary="true"	id-type="identity"></column>
+		<column name="cargo" 	db-name="cargo" 					type="String"></column>
+		<column name="d_m" 		db-name="departamento_municipio" 	type="String"></column>
+		<column name="usuario" 	db-name="usuario" 					type="String"></column>
+		<column name="creacion" db-name="fecha_creacion" 			type="Date"></column>
+		
+		<finder return-type="permisos" name="Usuario">
+			<finder-column name="usuario"></finder-column>
+		</finder>
+		<finder return-type="Collection" name="UsuarioR">
+			<finder-column name="usuario"></finder-column>
+		</finder>
+	</entity>
+	
+	<entity name="Docencia" table="SJ_docencia" local-service="true" remote-service="false" data-source="base_despachos">
+		<column name="id" 				db-name="ID" 				type="long" 	primary="true" id-type="identity"></column>
+		<column name="usuario_fk" 		db-name="usuario_fk" 		type="String"></column>
+		<column name="fechaInicial" 	db-name="fecha_inicial" 	type="Date"></column>
+		<column name="fechaFinal" 		db-name="fecha_final" 		type="Date"></column>
+		<column name="materia" 			db-name="materia" 			type="String"></column>
+		<column name="institucion" 		db-name="institucion" 		type="String"></column>
+		<column name="despacho" 		db-name="despacho_fk" 		type="String"></column>
+		<column name="creadoPor" 		db-name="created_by" 		type="long"></column>
+		<column name="modificadoPor" 	db-name="modified_by" 		type="long"></column>
+		<column name="estatus" 			db-name="estatus" 			type="int"></column>
+		<column name="horas" 			db-name="horas_docencia" 	type="int"></column>
+		<column name="minutos" 			db-name="minutos_docencia" 	type="int"></column>
+		<column name="cargo" 			db-name="cargo_fk" 			type="int"></column>
+		<column name="fechaRegistro" 	db-name="fecha_registro" 	type="Date"></column>
+		
+		<order by="desc">
+			<order-column name="id" order-by="desc"></order-column>
+		</order>
+		
+		<finder return-type="Collection" name="Creator" where="estatus = 1">
+			<finder-column name="creadoPor"></finder-column>
+		</finder>
+		
+		<finder return-type="Collection" name="Estatus">
+			<finder-column name="estatus"></finder-column>
+		</finder>
+		
+		<finder return-type="Collection" name="Despacho" where="estatus = 1">
+			<finder-column name="despacho"></finder-column>
+		</finder>
+		
+		<finder return-type="Collection" name="Docente" where="estatus = 1">
+			<finder-column name="usuario_fk"></finder-column>
+		</finder>
+	</entity>
+	
+	<entity name="auditoriaP" table="SJ_log" local-service="true" remote-service="false" data-source="base_despachos">
+		<column name="id" 						db-name="id" 						type="long" 	primary="true" 	id-type="identity"></column>
+		<column name="tipo_recurso" 			db-name="tipo_recurso" 				type="int"></column>
+		<column name="id_recurso_modificado" 	db-name="id_recurso_modificado" 	type="String"></column>
+		<column name="tipo_operacion" 			db-name="tipo_operacion" 			type="String"></column>
+		<column name="fecha" 					db-name="fecha" 					type="Date"></column>
+		<column name="correo" 					db-name="correo_usuario_modifico" 	type="String"></column>
+		<column name="usuario_modifico" 		db-name="usuario_modifico" 			type="String"></column>
+		<column name="modificacion" 			db-name="modificacion" 				type="String"></column>
+		
+		<order by="desc">
+			<order-column name="fecha" order-by="desc"></order-column>
+		</order>
+	</entity>
+	
+	<entity name="alerta" table="SJ_alertas" local-service="true" remote-service="false" data-source="base_despachos">
+		<column name="id" 						db-name="id" 						type="String" 	primary="true"></column>
+		<column name="asunto" 					db-name="asunto" 					type="String"></column>
+		<column name="mensaje" 					db-name="mensaje" 					type="String"></column>
+	</entity>
+</service-builder>

@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="co.com.csj.model.alerta">
+		<field name="id" type="String" />
+		<field name="asunto" type="String" />
+		<field name="mensaje" type="String" />
+	</model>
+	<model name="co.com.csj.model.auditoriaP">
+		<field name="id" type="long" />
+		<field name="tipo_recurso" type="int" />
+		<field name="id_recurso_modificado" type="String" />
+		<field name="tipo_operacion" type="String" />
+		<field name="fecha" type="Date" />
+		<field name="correo" type="String" />
+		<field name="usuario_modifico" type="String" />
+		<field name="modificacion" type="String" />
+	</model>
+	<model name="co.com.csj.model.cargo">
+		<field name="_id" type="long" />
+		<field name="desc" type="String" />
+	</model>
+	<model name="co.com.csj.model.Docencia">
+		<field name="id" type="long" />
+		<field name="usuario_fk" type="String" />
+		<field name="fechaInicial" type="Date" />
+		<field name="fechaFinal" type="Date" />
+		<field name="materia" type="String" />
+		<field name="institucion" type="String" />
+		<field name="despacho" type="String" />
+		<field name="creadoPor" type="long" />
+		<field name="modificadoPor" type="long" />
+		<field name="estatus" type="int" />
+		<field name="horas" type="int" />
+		<field name="minutos" type="int" />
+		<field name="cargo" type="int" />
+		<field name="fechaRegistro" type="Date" />
+	</model>
+	<model name="co.com.csj.model.licencia_permiso">
+		<field name="id" type="long" />
+		<field name="fechainicio" type="Date" />
+		<field name="fechafin" type="Date" />
+		<field name="usuariofk" type="String" />
+		<field name="tipofk" type="long" />
+		<field name="actoadmin" type="String" />
+		<field name="creadoPor" type="long" />
+		<field name="modificadoPor" type="long" />
+		<field name="estatus" type="int" />
+		<field name="despacho" type="String" />
+		<field name="cargo" type="int" />
+		<field name="horas" type="int" />
+		<field name="minutos" type="int" />
+		<field name="fechaRegistro" type="Date" />
+	</model>
+	<model name="co.com.csj.model.permisos">
+		<field name="id" type="long" />
+		<field name="cargo" type="String" />
+		<field name="d_m" type="String" />
+		<field name="usuario" type="String" />
+		<field name="creacion" type="Date" />
+	</model>
+	<model name="co.com.csj.model.tipo">
+		<field name="id" type="long" />
+		<field name="descripcion" type="String" />
+	</model>
+	<model name="co.com.csj.model.tipo_documento">
+		<field name="_id" type="long" />
+		<field name="desc" type="String" />
+	</model>
+	<model name="co.com.csj.model.usuario">
+		<field name="id" type="String" />
+		<field name="nomb" type="String" />
+		<field name="ape" type="String" />
+		<field name="tipo_doc" type="long" />
+		<field name="despachofk" type="String" />
+		<field name="cargofk" type="long" />
+	</model>
+</model-hints>

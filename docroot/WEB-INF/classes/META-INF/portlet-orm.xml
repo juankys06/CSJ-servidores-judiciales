@@ -1,0 +1,250 @@
+<?xml version="1.0"?>
+
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd">
+	<persistence-unit-metadata>
+		<xml-mapping-metadata-complete/>
+		<persistence-unit-defaults>
+			<access>PROPERTY</access>
+		</persistence-unit-defaults>
+	</persistence-unit-metadata>
+	<mapped-superclass class="co.com.csj.model.impl.alertaModelImpl">
+		<attributes>
+			<id name="id" />
+			<basic name="asunto" />
+			<basic name="mensaje" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="co.com.csj.model.impl.auditoriaPModelImpl">
+		<attributes>
+			<id name="id" />
+			<basic name="tipo_recurso" />
+			<basic name="id_recurso_modificado" />
+			<basic name="tipo_operacion" />
+			<basic name="fecha">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="correo">
+				<column name="CORREO_USUARIO_MODIFICO" />
+			</basic>
+			<basic name="usuario_modifico" />
+			<basic name="modificacion" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="co.com.csj.model.impl.cargoModelImpl">
+		<attributes>
+			<id name="_id">
+				<column name="ID" />
+			</id>
+			<basic name="desc">
+				<column name="DESCRIPCION" />
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="co.com.csj.model.impl.DocenciaModelImpl">
+		<attributes>
+			<id name="id">
+				<column name="ID" />
+			</id>
+			<basic name="usuario_fk" />
+			<basic name="fechaInicial">
+				<column name="FECHA_INICIAL" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="fechaFinal">
+				<column name="FECHA_FINAL" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="materia" />
+			<basic name="institucion" />
+			<basic name="despacho">
+				<column name="DESPACHO_FK" />
+			</basic>
+			<basic name="creadoPor">
+				<column name="CREATED_BY" />
+			</basic>
+			<basic name="modificadoPor">
+				<column name="MODIFIED_BY" />
+			</basic>
+			<basic name="estatus" />
+			<basic name="horas">
+				<column name="HORAS_DOCENCIA" />
+			</basic>
+			<basic name="minutos">
+				<column name="MINUTOS_DOCENCIA" />
+			</basic>
+			<basic name="cargo">
+				<column name="CARGO_FK" />
+			</basic>
+			<basic name="fechaRegistro">
+				<column name="FECHA_REGISTRO" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="co.com.csj.model.impl.licencia_permisoModelImpl">
+		<attributes>
+			<id name="id">
+				<column name="ID" />
+			</id>
+			<basic name="fechainicio">
+				<column name="FECHA_INICIO" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="fechafin">
+				<column name="FECHA_FIN" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="usuariofk">
+				<column name="USUARIO_FK" />
+			</basic>
+			<basic name="tipofk">
+				<column name="TIPO_FK" />
+			</basic>
+			<basic name="actoadmin">
+				<column name="ACTO_ADMIN" />
+			</basic>
+			<basic name="creadoPor">
+				<column name="CREATED_BY" />
+			</basic>
+			<basic name="modificadoPor">
+				<column name="MODIFIED_BY" />
+			</basic>
+			<basic name="estatus" />
+			<basic name="despacho">
+				<column name="DESPACHO_FK" />
+			</basic>
+			<basic name="cargo">
+				<column name="CARGO_FK" />
+			</basic>
+			<basic name="horas">
+				<column name="HORAS_PERMISO" />
+			</basic>
+			<basic name="minutos">
+				<column name="MINUTOS_PERMISO" />
+			</basic>
+			<basic name="fechaRegistro">
+				<column name="FECHA_REGISTRO" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="co.com.csj.model.impl.permisosModelImpl">
+		<attributes>
+			<id name="id" />
+			<basic name="cargo" />
+			<basic name="d_m">
+				<column name="DEPARTAMENTO_MUNICIPIO" />
+			</basic>
+			<basic name="usuario" />
+			<basic name="creacion">
+				<column name="FECHA_CREACION" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="co.com.csj.model.impl.tipoModelImpl">
+		<attributes>
+			<id name="id">
+				<column name="ID" />
+			</id>
+			<basic name="descripcion">
+				<column name="DESCRIPCION" />
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="co.com.csj.model.impl.tipo_documentoModelImpl">
+		<attributes>
+			<id name="_id">
+				<column name="ID" />
+			</id>
+			<basic name="desc">
+				<column name="DESCRIPCION" />
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="co.com.csj.model.impl.usuarioModelImpl">
+		<attributes>
+			<id name="id">
+				<column name="CEDULA_ID" />
+			</id>
+			<basic name="nomb">
+				<column name="NOMBRE" />
+			</basic>
+			<basic name="ape">
+				<column name="APELLIDO" />
+			</basic>
+			<basic name="tipo_doc">
+				<column name="DOCUMENTO_FK" />
+			</basic>
+			<basic name="despachofk">
+				<column name="DESPACHO_FK" />
+			</basic>
+			<basic name="cargofk">
+				<column name="CARGO_FK" />
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<entity class="co.com.csj.model.impl.alertaImpl" name="alerta">
+		<table name="SJ_alertas" />
+		<attributes />
+	</entity>
+	<entity class="co.com.csj.model.impl.auditoriaPImpl" name="auditoriaP">
+		<table name="SJ_log" />
+		<attributes />
+	</entity>
+	<entity class="co.com.csj.model.impl.cargoImpl" name="cargo">
+		<table name="SJ_cargo" />
+		<attributes />
+	</entity>
+	<entity class="co.com.csj.model.impl.DocenciaImpl" name="Docencia">
+		<table name="SJ_docencia" />
+		<attributes />
+	</entity>
+	<entity class="co.com.csj.model.impl.licencia_permisoImpl" name="licencia_permiso">
+		<table name="SJ_licencia_permiso" />
+		<attributes />
+	</entity>
+	<entity class="co.com.csj.model.impl.permisosImpl" name="permisos">
+		<table name="SJ_permiso_usuario" />
+		<attributes />
+	</entity>
+	<entity class="co.com.csj.model.impl.tipoImpl" name="tipo">
+		<table name="SJ_tipo" />
+		<attributes />
+	</entity>
+	<entity class="co.com.csj.model.impl.tipo_documentoImpl" name="tipo_documento">
+		<table name="SJ_tipo_documento" />
+		<attributes />
+	</entity>
+	<entity class="co.com.csj.model.impl.usuarioImpl" name="usuario">
+		<table name="SJ_usuario" />
+		<attributes />
+	</entity>
+</entity-mappings>
